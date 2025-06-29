@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 
 import toast from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
@@ -79,6 +79,7 @@ export default function ContactForm() {
   );
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef<typeof ReCAPTCHA | null>(null);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -92,8 +93,19 @@ export default function ContactForm() {
     });
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (recaptchaRef.current) {
+      recaptchaRef.current.execute();
+    }
+  }
+
+  async function handleFormSubmission(token: string | null) {
+    if (!token) {
+      toast.error("reCAPTCHA failed. Please try again.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -241,7 +253,9 @@ export default function ContactForm() {
       />
       <ReCAPTCHA
         sitekey={RECAPTCHA_SITE_KEY}
-        onChange={(token: string | null) => setRecaptchaToken(token)}
+        onChange={handleFormSubmission}
+        size="invisible"
+        ref={recaptchaRef}
       />
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send"}

@@ -1,5 +1,7 @@
-export const RECAPTCHA_SITE_KEY = "6LdhEXIrAAAAAJqMVYHgtPVz6T8z06KLuAzG65Tw";
-export const EMAILJS_PUBLIC_KEY = "oYYVS9RWGDwBLIS8P";
-export const EMAILJS_SERVICE_ID = "service_nvkrm04";
-export const EMAILJS_TEMPLATE_ID_TO_USER = "template_ra4w3xh";
-export const EMAILJS_TEMPLATE_ID_TO_ME = "template_ekw8cjs";
+export const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
+export const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+export const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+export const EMAILJS_TEMPLATE_ID_TO_USER =
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_TO_USER!;
+export const EMAILJS_TEMPLATE_ID_TO_ME =
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_TO_ME!;

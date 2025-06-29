@@ -1,0 +1,108 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+body {
+  font-family: "gill-sans-nova", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero,
+.about__header,
+.projects__header,
+.contact__header,
+.footer {
+  text-align: center;
+}
+
+.header {
+  &__logo-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: v.$transition;
+  }
+
+  &__nav-links {
+    font-weight: 700;
+  }
+
+  &__nav-link {
+    font-size: 1.5rem;
+    transition: v.$transition;
+  }
+
+  &__nav-mobile-link {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: v.$transition;
+  }
+
+  &__nav-toggle-btn {
+    font-size: 2rem;
+    transition: v.$transition;
+  }
+}
+
+.hero {
+  &__title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    transition: v.$transition;
+  }
+  &__subtitle {
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+.about__header-title,
+.projects__header-title,
+.contact__header-title {
+  font-size: 4.3rem;
+  text-transform: uppercase;
+  transition: v.$transition;
+}
+
+.hero__subtitle,
+.about__header-subtitle,
+.projects__header-subtitle,
+.contact__header-subtitle {
+  font-size: 2.1rem;
+  transition: v.$transition;
+}
+
+.about__text-title,
+.about__skills-title,
+.projects__content-row-text-title {
+  font-size: 3rem;
+  transition: v.$transition;
+}
+
+.about__text-p,
+.projects__content-row-text-subtitle {
+  font-size: 2rem;
+  transition: v.$transition;
+}
+
+.about__skills-item {
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: v.$transition;
+}
+
+.footer__title {
+  font-size: 1.4rem;
+  transition: v.$transition;
+}
+
+@media (max-width: 523px) {
+  .hero__subtitle {
+    max-width: 260px;
+  }
+}

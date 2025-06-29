@@ -5,10 +5,6 @@
   --font-mono: "Fira Code", monospace;
 }
 
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
 body {
   font-family: var(--font-mono);
 }

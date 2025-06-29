@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer, useRef, useState } from "react";
+import { useReducer, useState } from "react";
 
 import toast from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
@@ -79,7 +79,6 @@ export default function ContactForm() {
   );
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const recaptchaRef = useRef<typeof ReCAPTCHA | null>(null);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -93,19 +92,8 @@ export default function ContactForm() {
     });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (recaptchaRef.current) {
-      recaptchaRef.current.execute();
-    }
-  }
-
-  async function handleFormSubmission(token: string | null) {
-    if (!token) {
-      toast.error("reCAPTCHA failed. Please try again.");
-      return;
-    }
-
     setIsSubmitting(true);
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -120,18 +108,14 @@ export default function ContactForm() {
       });
       toast.error("Please enter your name!");
       hasError = true;
-    }
-
-    if (!email.trim()) {
+    } else if (!email.trim()) {
       dispatch({
         type: "error",
         payload: { field: "email", error: true },
       });
       toast.error("Please enter your email!");
       hasError = true;
-    }
-
-    if (!emailPattern.test(email)) {
+    } else if (!emailPattern.test(email)) {
       dispatch({
         type: "error",
         payload: { field: "email", error: true },
@@ -143,7 +127,7 @@ export default function ContactForm() {
         type: "error",
         payload: { field: "phone", error: true },
       });
-      toast.error("Phone number is required!");
+      toast.error("Please enter your phone number!");
       hasError = true;
     } else if (numericPhone.length !== 10) {
       dispatch({
@@ -152,18 +136,14 @@ export default function ContactForm() {
       });
       toast.error("Phone number format: (123) 456-7890");
       hasError = true;
-    }
-
-    if (!message.trim()) {
+    } else if (!message.trim()) {
       dispatch({
         type: "error",
         payload: { field: "message", error: true },
       });
       toast.error("Please enter a message!");
       hasError = true;
-    }
-
-    if (!recaptchaToken) {
+    } else if (!recaptchaToken) {
       toast.error("Please complete the reCAPTCHA.");
       hasError = true;
     }
@@ -198,7 +178,7 @@ export default function ContactForm() {
       dispatch({ type: "reset" });
       setRecaptchaToken(null);
     } catch (err) {
-      console.error(err);
+      console.log(err);
       toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -253,9 +233,7 @@ export default function ContactForm() {
       />
       <ReCAPTCHA
         sitekey={RECAPTCHA_SITE_KEY}
-        onChange={handleFormSubmission}
-        size="invisible"
-        ref={recaptchaRef}
+        onChange={(token: string | null) => setRecaptchaToken(token)}
       />
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send"}

@@ -50,9 +50,9 @@ export default function MobileNavigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-0"
+            className="fixed inset-0 bg-background z-0"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsOpen(false)}

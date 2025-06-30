@@ -13,6 +13,8 @@ import {
 } from "react-icons/si";
 import PageSection from "../../layout/PageSection";
 import PageSectionHeader from "../../layout/PageSectionHeader";
+import Link from "next/link";
+import { FaEnvelope, FaGithub } from "react-icons/fa";
 
 export default function AboutSection() {
   return (
@@ -40,45 +42,64 @@ export default function AboutSection() {
             solutions. Feel free to explore my projects, and don&apos;t hesitate
             to get in touch.
           </p>
-          <Button>Contact</Button>
+          <Button>
+            <Link href="#contact">Contact</Link>
+          </Button>
         </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-xl font-black">My skills</h2>
-          <ul className="flex flex-wrap text-5xl gap-8 max-w-110">
-            <li className="text-[#e34f26]">
-              <FaHtml5 />
-            </li>
-            <li className="text-[#1572B6]">
-              <FaCss3 />
-            </li>
-            <li className="text-[#CC6699]">
-              <FaSass />
-            </li>
-            <li className="text-[#06B6D4]">
-              <SiTailwindcss />
-            </li>
-            <li className="text-[#F7DF1E]">
-              <SiJavascript />
-            </li>
-            <li className="text-[#3178C6]">
-              <SiTypescript />
-            </li>
-            <li className="text-[#61DAFB]">
-              <FaReact />
-            </li>
-            <li>
-              <SiNextdotjs />
-            </li>
-            <li className="text-[#FF7C00]">
-              <SiAdobeillustrator />
-            </li>
-            <li className="text-[#31A8FF]">
-              <SiAdobephotoshop />
-            </li>
-            <li className="text-[#9999FF]">
-              <SiAdobepremierepro />
-            </li>
-          </ul>
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-xl font-black">My skills</h2>
+            <ul className="flex flex-wrap text-5xl gap-8 max-w-110">
+              <li className="text-[#e34f26]">
+                <FaHtml5 />
+              </li>
+              <li className="text-[#1572B6]">
+                <FaCss3 />
+              </li>
+              <li className="text-[#CC6699]">
+                <FaSass />
+              </li>
+              <li className="text-[#06B6D4]">
+                <SiTailwindcss />
+              </li>
+              <li className="text-[#F7DF1E]">
+                <SiJavascript />
+              </li>
+              <li className="text-[#3178C6]">
+                <SiTypescript />
+              </li>
+              <li className="text-[#61DAFB]">
+                <FaReact />
+              </li>
+              <li>
+                <SiNextdotjs />
+              </li>
+              <li className="text-[#FF7C00]">
+                <SiAdobeillustrator />
+              </li>
+              <li className="text-[#31A8FF]">
+                <SiAdobephotoshop />
+              </li>
+              <li className="text-[#9999FF]">
+                <SiAdobepremierepro />
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-xl font-black">Links</h2>
+            <ul className="flex flex-wrap text-5xl gap-8 max-w-110">
+              <li className="text-text">
+                <Link href="https://github.com/cwatchley4" target="_blank">
+                  <FaGithub />
+                </Link>
+              </li>
+              <li>
+                <Link href="mailto:curtis@curtisatchley.com">
+                  <FaEnvelope />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </PageSection>

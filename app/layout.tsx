@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Merriweather_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/layout/Header";
 import { Toaster } from "react-hot-toast";
-import Footer from "./_components/layout/Footer";
+import { AppProvider } from "./_contexts/AppContext";
 
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
@@ -28,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${merriweatherSans.variable} ${firaCode.variable} antialiased`}
+        className={`${merriweatherSans.variable} ${firaCode.variable} antialiased transition-colors duration-300 ease-in-out`}
       >
         <Toaster
           toastOptions={{
@@ -37,9 +36,7 @@ export default function RootLayout({
             },
           }}
         />
-        <Header />
-        {children}
-        <Footer />
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

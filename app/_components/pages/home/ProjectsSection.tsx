@@ -14,7 +14,7 @@ import webbsValleyViewImage from "@/public/images/webbs.png";
 
 export default function ProjectsSection() {
   return (
-    <PageSection id="projects" backgroundColor="bg-gray-50">
+    <PageSection id="projects" backgroundColor="bg-background-muted">
       <PageSectionHeader>
         <HeaderTypewriter textTypewriter={["My Projects"]} loop={1} />
         <HeaderSubtitle>Some of the work I&apos;ve done.</HeaderSubtitle>

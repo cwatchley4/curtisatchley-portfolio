@@ -16,6 +16,7 @@ import {
   EMAILJS_TEMPLATE_ID_TO_USER,
   RECAPTCHA_SITE_KEY,
 } from "@/app/_lib/config";
+import { useApp } from "@/app/_contexts/AppContext";
 
 interface FormState {
   name: string;
@@ -79,6 +80,7 @@ export default function ContactForm() {
   );
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isDarkMode } = useApp();
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -188,7 +190,7 @@ export default function ContactForm() {
   return (
     <form
       noValidate
-      className="flex flex-col gap-5 bg-gray-50 p-4 rounded-lg"
+      className="flex flex-col gap-5 bg-background-muted p-4 rounded-lg"
       onSubmit={handleSubmit}
     >
       <input
@@ -197,7 +199,7 @@ export default function ContactForm() {
         onChange={handleChange}
         required
         placeholder="name"
-        className="bg-gray-100 px-2 py-1 rounded"
+        className="bg-background px-2 py-1 rounded"
       />
       <input
         name="email"
@@ -205,7 +207,7 @@ export default function ContactForm() {
         required
         onChange={handleChange}
         placeholder="email"
-        className="bg-gray-100 px-2 py-1 rounded"
+        className="bg-background px-2 py-1 rounded"
       />
       <PhoneInput
         placeholder="phone"
@@ -220,8 +222,8 @@ export default function ContactForm() {
             payload: { field: "phone", value: phoneValue || "" },
           })
         }
-        inputClass="!border-0 !bg-gray-100"
-        buttonClass="!border-0"
+        inputClass="!border-0 !bg-background"
+        buttonClass="!border-0 !bg-background-muted"
       />
 
       <textarea
@@ -229,11 +231,12 @@ export default function ContactForm() {
         value={message}
         onChange={handleChange}
         placeholder="message"
-        className="bg-gray-100 px-2 py-1 rounded"
+        className="bg-background px-2 py-1 rounded"
       />
       <ReCAPTCHA
         sitekey={RECAPTCHA_SITE_KEY}
         onChange={(token: string | null) => setRecaptchaToken(token)}
+        theme={isDarkMode ? "dark" : "light"}
       />
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send"}

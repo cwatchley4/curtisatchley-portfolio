@@ -5,6 +5,7 @@ import { useState } from "react";
 import NavigationLink from "./NavigationLink";
 import NavigationCursor from "./NavigationCursor";
 import { TargetAndTransition } from "framer-motion";
+import MobileNavigation from "./MobileNavigation";
 
 export default function Navigation() {
   const [position, setPosition] = useState<TargetAndTransition>({
@@ -14,7 +15,7 @@ export default function Navigation() {
   });
 
   return (
-    <nav>
+    <nav className="flex gap-4">
       <ul
         onMouseLeave={() => {
           setPosition((state) => ({ ...state, opacity: 0 }));
@@ -39,6 +40,7 @@ export default function Navigation() {
         </NavigationLink>
         <NavigationCursor position={position} />
       </ul>
+      <MobileNavigation />
     </nav>
   );
 }

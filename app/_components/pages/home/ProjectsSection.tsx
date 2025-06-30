@@ -59,7 +59,7 @@ export default function ProjectsSection() {
           mobile-responsive design.
         </Project>
         <Project
-          projectTitle="Carpet Near Me"
+          projectTitle="Mattress by Apppointment Canton"
           imageSrc={mattressByAppointmentImage}
           imageAlt="Mattress by Appointment website screen shot"
           buttonLink="https://mattressbyappointmentcanton.com"

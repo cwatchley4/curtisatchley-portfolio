@@ -72,3 +72,16 @@ h6 {
     stroke-dashoffset: -240;
   }
 }
+
+.main-margins > *:not(:first-child) {
+  @apply mb-16;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

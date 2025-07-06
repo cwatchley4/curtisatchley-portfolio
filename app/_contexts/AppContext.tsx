@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import Header from "../_components/layout/Header";
 import Footer from "../_components/layout/Footer";
 
 interface AppContextType {
@@ -51,7 +50,6 @@ function AppProvider({ children }: AppProviderProps) {
 
   return (
     <AppContext.Provider value={{ isDarkMode, setIsDarkMode }}>
-      <Header />
       {children}
       <Footer />
     </AppContext.Provider>

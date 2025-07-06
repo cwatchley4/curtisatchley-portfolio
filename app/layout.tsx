@@ -3,6 +3,7 @@ import { Merriweather_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./_contexts/AppContext";
+import ScrollIndicator from "./_components/ui/ScrollIndicator";
 
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
@@ -25,18 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="hide-scrollbar">
       <body
         className={`${merriweatherSans.variable} ${firaCode.variable} antialiased transition-colors duration-300 ease-in-out`}
       >
-        <Toaster
-          toastOptions={{
-            style: {
-              marginTop: "2rem", // Adjust this value as desired
-            },
-          }}
-        />
-        <AppProvider>{children}</AppProvider>
+        <ScrollIndicator>
+          <Toaster
+            toastOptions={{
+              style: {
+                marginTop: "2rem", // Adjust this value as desired
+              },
+            }}
+          />
+          <AppProvider>{children}</AppProvider>
+        </ScrollIndicator>
       </body>
     </html>
   );

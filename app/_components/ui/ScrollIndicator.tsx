@@ -24,7 +24,7 @@ export default function ScrollIndicator({ children }: ScrollIndicatorProps) {
           top: 0,
           bottom: 0,
           right: 0,
-          width: 5,
+          width: 3,
           originY: 0,
           backgroundColor: "#ff901b",
           zIndex: 30,

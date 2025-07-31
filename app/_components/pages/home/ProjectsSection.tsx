@@ -11,6 +11,7 @@ import lakelandImage from "@/public/images/lakeland.png";
 import mattressByAppointmentImage from "@/public/images/mba.png";
 import precisionLawnsImage from "@/public/images/precisionlawns.png";
 import webbsValleyViewImage from "@/public/images/webbs.png";
+import TextLink from "../../ui/TextLink";
 
 export default function ProjectsSection() {
   return (
@@ -78,10 +79,9 @@ export default function ProjectsSection() {
           buttonLink="https://webbsvalleyview.com/"
           buttonText="Visit Site"
         >
-          A fully responsive campground website with an integrated online
-          reservation and payment system. Developed using HTML, CSS, and
-          JavaScript. Features include a streamlined booking process, clean UI,
-          and mobile-first design for easy access on the go.
+          A fully responsive campground website built with Next.js and Tailwind
+          CSS. Features include mobile-first design and contact form integrated
+          with <TextLink href="https://resend.com">Resend</TextLink>.
         </Project>
         <Project
           projectTitle="Lakeland Community Church"

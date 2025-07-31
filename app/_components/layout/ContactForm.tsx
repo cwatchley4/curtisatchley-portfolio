@@ -197,14 +197,12 @@ export default function ContactForm() {
         name="name"
         value={name}
         onChange={handleChange}
-        required
         placeholder="name"
         className="bg-background px-2 py-1 rounded"
       />
       <input
         name="email"
         value={email}
-        required
         onChange={handleChange}
         placeholder="email"
         className="bg-background px-2 py-1 rounded"

@@ -33,7 +33,7 @@ export default function ProjectsSection() {
           component-driven architecture. Includes state management, user
           interaction logic, and responsive design.
         </Project>
-        <Project
+        {/* <Project
           projectTitle="Carpet Near Me"
           imageSrc={carpetNearMeImage}
           imageAlt="Carpet Near Me website screen shot"
@@ -45,7 +45,7 @@ export default function ProjectsSection() {
           structure for maintainable, scalable code. Includes a product listing
           with filter functionality, mobile-friendly layout, and a
           lead-generation booking form.
-        </Project>
+        </Project> */}
         <Project
           projectTitle="Fulton County Resources"
           imageSrc={fultonCountyResourcesImage}

@@ -5,7 +5,7 @@ import PageSectionHeader from "../../layout/PageSectionHeader";
 import Project from "./Project";
 
 import playMyGamesImage from "@/public/images/play-my-games.png";
-import carpetNearMeImage from "@/public/images/carpetnearme.png";
+// import carpetNearMeImage from "@/public/images/carpetnearme.png";
 import fultonCountyResourcesImage from "@/public/images/fulton-county-resources.png";
 import lakelandImage from "@/public/images/lakeland.png";
 import mattressByAppointmentImage from "@/public/images/mba.png";

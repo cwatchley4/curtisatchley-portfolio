@@ -8,6 +8,7 @@ import {
   SiAdobepremierepro,
   SiJavascript,
   SiNextdotjs,
+  SiSanity,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -73,6 +74,9 @@ export default function AboutSection() {
               </li>
               <li>
                 <SiNextdotjs />
+              </li>
+              <li>
+                <SiSanity />
               </li>
               <li className="text-[#FF7C00]">
                 <SiAdobeillustrator />

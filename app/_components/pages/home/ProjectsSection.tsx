@@ -80,8 +80,9 @@ export default function ProjectsSection() {
           buttonText="Visit Site"
         >
           A fully responsive campground website built with Next.js and Tailwind
-          CSS. Features include mobile-first design and contact form integrated
-          with <TextLink href="https://resend.com">Resend</TextLink>.
+          CSS. Features include mobile-first design, custom contact form
+          integrated with <TextLink href="https://resend.com">Resend</TextLink>,
+          and CMS with <TextLink href="https://www.sanity.io">Sanity</TextLink>.
         </Project>
         <Project
           projectTitle="Lakeland Community Church"
